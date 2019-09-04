@@ -20,11 +20,12 @@ class Agent:
         reward = self._reward(current_action)
         self._q_values[current_action] += self._step() * (reward - self._q_values[current_action])
 
-    def argmax(self):
+    @staticmethod
+    def _argmax(arr):
         top = float("-inf")
         ties = []
 
-        for idx, q in np.ndenumerate(self._q_values):
+        for idx, q in np.ndenumerate(arr):
             if q > top:
                 top = q
                 ties = [idx]

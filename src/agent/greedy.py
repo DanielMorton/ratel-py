@@ -9,4 +9,4 @@ class GreedyAgent(Agent):
         assert len(q_inits.shape) == 1
 
     def action(self):
-        return self.argmax()
+        return self._argmax(self._q_values)

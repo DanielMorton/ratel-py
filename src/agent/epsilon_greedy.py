@@ -11,4 +11,4 @@ class EpsilonGreedyAgent(Agent):
         self._epsilon = epsilon
 
     def action(self):
-        return np.random.randint(self.arms()) if np.random.random() < self._epsilon else self.argmax()
+        return np.random.randint(self.arms()) if np.random.random() < self._epsilon else self._argmax(self._q_values)
