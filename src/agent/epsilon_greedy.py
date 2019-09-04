@@ -1,5 +1,5 @@
 from .agent import Agent
-from numpy.random import randint, random
+import numpy as np
 
 
 class EpsilonGreedyAgent(Agent):
@@ -11,5 +11,4 @@ class EpsilonGreedyAgent(Agent):
         self._epsilon = epsilon
 
     def action(self):
-        return randint(self.arms()) if random() < self._epsilon else self.argmax()
-
+        return np.random.randint(self.arms()) if np.random.random() < self._epsilon else self.argmax()

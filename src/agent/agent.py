@@ -1,5 +1,4 @@
-from numpy import ndenumerate
-from numpy.random import choice
+import numpy as np
 
 
 class Agent:
@@ -10,12 +9,14 @@ class Agent:
         self._best_action = bandit.best()
         self._stepper = stepper
         self._q_values = q_inits
+        self._iter = 1
 
     def action(self):
         pass
 
     def agent_step(self):
         current_action = self.action()
+        self._iter += 1
         reward = self._reward(current_action)
         self._q_values[current_action] += self._step() * (reward - self._q_values[current_action])
 
@@ -23,13 +24,13 @@ class Agent:
         top = float("-inf")
         ties = []
 
-        for idx, q in ndenumerate(self._q_values):
+        for idx, q in np.ndenumerate(self._q_values):
             if q > top:
                 top = q
                 ties = [idx]
             elif q == top:
                 ties.append(idx)
-        return choice(ties)
+        return np.random.choice(ties)
 
     def arms(self):
         return self._bandit.arms()

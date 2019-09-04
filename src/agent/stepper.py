@@ -1,4 +1,3 @@
-
 class Stepper:
 
     def step(self):
