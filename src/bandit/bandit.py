@@ -3,6 +3,9 @@ import numpy as np
 
 class Bandit:
 
+    def __init__(self, q_values):
+        self._q_values = q_values
+
     def arms(self):
         return self._q_values.shape[0]
 
