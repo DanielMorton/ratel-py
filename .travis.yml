@@ -3,9 +3,15 @@ language: python
 python:
   - "3.7"
   - "3.7-dev"
+  - "3.8-dev"
   - "nightly"
 
 install:
   - pip install -r requirements.txt
 
 script: pytest
+
+notifications:
+  email:
+    - on_success: change
+    - on_failure: always
