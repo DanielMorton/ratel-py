@@ -18,6 +18,7 @@ class AverageCounter(Counter):
         super().__init__()
         self._total = 0
 
+    @property
     def average(self):
         return self.total/self.counter
 
