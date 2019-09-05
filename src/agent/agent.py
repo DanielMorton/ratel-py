@@ -3,13 +3,13 @@ import numpy as np
 
 class Agent:
 
-    def __init__(self, bandit, stepper, q_inits):
+    def __init__(self, bandit, stepper, counter, q_inits):
         self._bandit = bandit
         self._actions = []
         self._best_action = bandit.best
         self._stepper = stepper
+        self._counter = counter
         self._q_values = q_inits
-        self._iter = 0
         self._tot_reward = 0
 
     @staticmethod
@@ -37,8 +37,8 @@ class Agent:
     def agent_step(self):
         current_action = self.action()
         self._actions.append(current_action)
-        self._iter += 1
         reward = self._reward(current_action)
+        self._counter.iterate(reward)
         self._tot_reward += reward
         self._q_values[current_action] += self._step() * (reward - self._q_values[current_action])
 
