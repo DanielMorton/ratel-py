@@ -1,4 +1,4 @@
-from .counter import AverageCounter, Counter
+from src.util.counter import AverageCounter, Counter
 
 
 def test_counter():
