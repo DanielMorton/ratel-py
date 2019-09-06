@@ -1,17 +1,18 @@
 import numpy as np
+from src.util.counter import RecordCounter
 
 
 class Agent:
 
-    def __init__(self, bandit, stepper, counter, q_inits):
+    def __init__(self, bandit, stepper, q_inits):
         assert len(q_inits.shape) == 1
         assert q_inits.shape[0] > 0
         self._bandit = bandit
         assert self.arms == q_inits.shape[0]
-        self._actions = []
         self._best_action = bandit.best_arm
         self._stepper = stepper
-        self._counter = counter
+        self._counter = RecordCounter()
+        self._wins = RecordCounter()
         self._q_star = q_inits
 
     @staticmethod
@@ -38,7 +39,7 @@ class Agent:
 
     def agent_step(self):
         current_action = self.action()
-        self._actions.append(current_action)
+        self._wins.iterate(current_action == self.best_arm)
         reward = self._reward(current_action)
         self._counter.iterate(reward)
         self._q_star[current_action] += self._step() * (reward - self._q_star[current_action])
@@ -46,6 +47,10 @@ class Agent:
     @property
     def arms(self):
         return self._bandit.arms
+
+    @property
+    def best_arm(self):
+        return self._bandit.best_arm
 
     @property
     def counter(self):
