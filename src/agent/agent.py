@@ -6,7 +6,7 @@ class Agent:
     def __init__(self, bandit, stepper, counter, q_inits):
         self._bandit = bandit
         self._actions = []
-        self._best_action = bandit.best
+        self._best_action = bandit.best_arm
         self._stepper = stepper
         self._counter = counter
         self._q_values = q_inits

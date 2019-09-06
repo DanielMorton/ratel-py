@@ -11,7 +11,7 @@ class Bandit:
         return self._q_values.shape[0]
 
     @property
-    def best(self):
+    def best_arm(self):
         return np.argmax(self._q_values)
 
     @property

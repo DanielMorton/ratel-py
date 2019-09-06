@@ -9,4 +9,4 @@ class GaussianBandit(Bandit):
         self._std = std
 
     def reward(self, arm):
-        return np.random.normal(self._q_values[arm], 1)
+        return np.random.normal(self._q_values[arm], self._std)
