@@ -4,6 +4,8 @@ import numpy as np
 class Bandit:
 
     def __init__(self, q_values):
+        assert len(q_values.shape) == 1
+        assert q_values.shape[0] > 0
         self._q_values = q_values
 
     @property
