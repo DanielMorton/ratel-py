@@ -9,7 +9,6 @@ class Agent:
         assert q_inits.shape[0] > 0
         self._bandit = bandit
         assert self.arms == q_inits.shape[0]
-        self._best_action = bandit.best_arm
         self._stepper = stepper
         self._counter = RecordCounter()
         self._wins = RecordCounter()
@@ -59,3 +58,14 @@ class Agent:
     @property
     def max_reward(self):
         return self._bandit.max_reward
+
+    def reset(self, q_inits):
+        self._stepper.reset()
+        self._counter.reset()
+        self._wins.reset()
+        self._q_star = q_inits
+
+    def run(self, steps):
+        for _ in range(steps):
+            self.agent_step()
+

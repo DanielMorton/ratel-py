@@ -11,6 +11,9 @@ class Counter:
     def iterate(self):
         self._counter += 1
 
+    def reset(self):
+        self.__init__()
+
 
 class AverageCounter(Counter):
 
@@ -25,6 +28,9 @@ class AverageCounter(Counter):
     def iterate(self, value):
         self._total += value
         super().iterate()
+
+    def reset(self):
+        self.__init__()
 
     @property
     def total(self):
@@ -44,3 +50,6 @@ class RecordCounter(Counter):
     @property
     def record(self):
         return self._record
+
+    def reset(self):
+        self.__init__()
