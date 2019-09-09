@@ -6,6 +6,8 @@ from src.bandit.bandit import Bandit
 class GaussianBandit(Bandit):
 
     def __init__(self, means, stdevs):
+        assert means.shape == stdevs.shape
+        assert len(means.shape) == 1
         super().__init__(means)
         self._std = stdevs
 
