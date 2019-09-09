@@ -11,5 +11,13 @@ class GaussianBandit(Bandit):
         super().__init__(means)
         self._std = stdevs
 
+    @property
+    def means(self):
+        return self._q_values
+
+    @property
+    def stddevs(self):
+        return self._std
+
     def reward(self, arm):
-        return np.random.normal(self._q_values[arm], self._std[arm])
+        return np.random.normal(self.means[arm], self.stddevs[arm])

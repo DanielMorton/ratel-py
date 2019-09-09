@@ -1,4 +1,5 @@
 import numpy as np
+
 from src.util.counter import RecordCounter
 
 
@@ -54,6 +55,9 @@ class Agent:
     @property
     def counter(self):
         return self._counter.counter
+
+    def current_estimate(self, arm):
+        return self._q_star[arm]
 
     @property
     def max_reward(self):
