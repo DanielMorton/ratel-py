@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 
 from src.util.counter import RecordCounter
 
@@ -11,7 +12,7 @@ class Agent:
         self._bandit = bandit
         assert self.arms == q_inits.shape[0]
         self._stepper = stepper
-        self._counter = RecordCounter()
+        self._rewards = RecordCounter()
         self._wins = RecordCounter()
         self._q_star = q_inits
 
@@ -41,7 +42,7 @@ class Agent:
         current_action = self.action()
         self._wins.iterate(current_action == self.best_arm)
         reward = self._reward(current_action)
-        self._counter.iterate(reward)
+        self._rewards.iterate(reward)
         self._q_star[current_action] += self._step() * (reward - self._q_star[current_action])
 
     @property
@@ -63,6 +64,9 @@ class Agent:
     def max_reward(self):
         return self._bandit.max_reward
 
+    def output_df(self):
+        pd.DataFrame({'wins': self._wins.record, 'rewards': self._rewards.record})
+
     def reset(self, q_inits):
         self._stepper.reset()
         self._counter.reset()
@@ -72,4 +76,5 @@ class Agent:
     def run(self, steps):
         for _ in range(steps):
             self.agent_step()
+        return self.output_df()
 
