@@ -24,16 +24,16 @@ class Agent:
         for idx, q in np.ndenumerate(arr):
             if q > top:
                 top = q
-                ties = [idx]
+                ties = [idx[0]]
             elif q == top:
-                ties.append(idx)
+                ties.append(idx[0])
         return np.random.choice(ties)
 
     def _reward(self, current_action):
         return self._bandit.reward(current_action)
 
-    def _step(self):
-        return self._stepper.step()
+    def _step(self, arm):
+        return self._stepper.step(arm)
 
     def action(self):
         pass
@@ -43,7 +43,7 @@ class Agent:
         self._wins.iterate(current_action == self.best_arm)
         reward = self._reward(current_action)
         self._rewards.iterate(reward)
-        self._q_star[current_action] += self._step() * (reward - self._q_star[current_action])
+        self._q_star[current_action] += self._step(current_action) * (reward - self._q_star[current_action])
 
     @property
     def arms(self):
@@ -55,7 +55,7 @@ class Agent:
 
     @property
     def counter(self):
-        return self._counter.counter
+        return self._rewards.counter
 
     def current_estimate(self, arm):
         return self._q_star[arm]
@@ -65,11 +65,11 @@ class Agent:
         return self._bandit.max_reward
 
     def output_df(self):
-        pd.DataFrame({'wins': self._wins.record, 'rewards': self._rewards.record})
+        return pd.DataFrame({'wins': self._wins.record, 'rewards': self._rewards.record})
 
     def reset(self, q_inits):
         self._stepper.reset()
-        self._counter.reset()
+        self._rewards.reset()
         self._wins.reset()
         self._q_star = q_inits
 

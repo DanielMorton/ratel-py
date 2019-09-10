@@ -1,3 +1,5 @@
+import numpy as np
+
 from src.util.stepper import ConstantStepper, HarmonicStepper, Stepper
 
 
@@ -13,18 +15,18 @@ class TestStepper:
         assert stepper.step() == 0.1
 
     def test_harmonic_stepper(self):
-        stepper = HarmonicStepper()
-        assert stepper.step() == 1
-        assert stepper.step() == 0.5
-        stepper.step()
-        assert stepper.step() == 0.25
+        stepper = HarmonicStepper(length=1)
+        assert stepper.step(0) == 1
+        assert stepper.step(0) == 0.5
+        stepper.step(0)
+        assert stepper.step(0) == 0.25
         stepper.reset()
-        assert stepper.step_size == 1
+        assert np.array_equal(stepper.step_size, np.array([1]))
 
-        new_steper = HarmonicStepper(4)
+        new_steper = HarmonicStepper(warmup=4)
         for _ in range(6):
-            new_steper.step()
-        assert new_steper.step() == 0.1
+            new_steper.step(0)
+        assert new_steper.step(0) == 0.1
         new_steper.reset()
-        assert new_steper.step_size == 4
-        assert new_steper.step() == 0.25
+        assert np.array_equal(new_steper.step_size, np.array([4]))
+        assert new_steper.step(0) == 0.25

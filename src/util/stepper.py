@@ -1,3 +1,6 @@
+import numpy as np
+
+
 class Stepper:
 
     def __init__(self, step_size):
@@ -22,20 +25,20 @@ class ConstantStepper(Stepper):
     def reset(self):
         self.__init__(self.step_size)
 
-    def step(self):
+    def step(self, arm=None):
         return self.step_size
 
 
 class HarmonicStepper(Stepper):
 
-    def __init__(self, warmup=1):
-        self._warmup = warmup
-        super().__init__(warmup)
+    def __init__(self, warmup=1, length=1):
+        self._warmup = warmup * np.ones(length)
+        super().__init__(np.copy(self._warmup))
 
     def reset(self):
-        self.__init__(self._warmup)
+        self.__init__(self._warmup[0], self._warmup.shape[0])
 
-    def step(self):
-        s = 1/self.step_size
-        self._step_size += 1
+    def step(self, arm):
+        s = 1/self.step_size[arm]
+        self._step_size[arm] += 1
         return s
