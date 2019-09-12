@@ -10,7 +10,7 @@ class BernoulliBandit(Bandit):
         assert probs.min() >= 0
         super().__init__(probs)
 
-    @@property
+    @property
     def probs(self):
         return self._q_values
 
