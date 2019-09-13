@@ -12,10 +12,6 @@ class GaussianBandit(Bandit):
         self._std = stdevs
 
     @property
-    def means(self):
-        return self._q_values
-
-    @property
     def stddevs(self):
         return self._std
 

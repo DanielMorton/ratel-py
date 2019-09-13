@@ -20,5 +20,9 @@ class Bandit:
     def max_reward(self):
         return self._q_values.max()
 
+    @property
+    def means(self):
+        return self._q_values
+
     def reward(self, arm):
         pass
