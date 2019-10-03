@@ -5,8 +5,8 @@ from .agent import Agent
 
 class OptimisticAgent(Agent):
 
-    def __init__(self, bandit, stepper, q_inits, c_bound):
-        super().__init__(bandit, stepper, q_inits)
+    def __init__(self, stepper, q_inits, c_bound):
+        super().__init__(stepper, q_inits)
         self._c = c_bound
         self._pick_count = np.zeros(self.arms())
 

@@ -6,7 +6,7 @@ from .agent import Agent
 class EpsilonGreedyAgent(Agent):
 
     def __init__(self, bandit, stepper, q_inits, epsilon):
-        super().__init__(bandit, stepper, q_inits)
+        super().__init__(stepper, q_inits)
         self._epsilon = epsilon
 
     def action(self):
