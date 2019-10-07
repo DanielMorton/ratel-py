@@ -1,6 +1,6 @@
 import numpy as np
 
-from src.bandit.bandit import Bandit
+from .bandit import Bandit
 
 
 class BinomialBandit(Bandit):

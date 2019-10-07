@@ -1,6 +1,6 @@
 import pandas as pd
 
-from src.util.counter import RecordCounter
+from .util import RecordCounter
 
 
 class Optimizer:

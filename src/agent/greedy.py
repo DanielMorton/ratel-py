@@ -1,4 +1,4 @@
-from src.agent.agent import Agent
+from .agent import Agent
 
 
 class GreedyAgent(Agent):

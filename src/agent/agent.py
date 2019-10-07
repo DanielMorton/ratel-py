@@ -2,6 +2,7 @@ import numpy as np
 
 
 class Agent:
+    """Generic agent for playing multi-arm bandit games."""
 
     def __init__(self, stepper, q_inits):
         assert len(q_inits.shape) == 1
