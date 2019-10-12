@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from src.util.counter import AverageCounter, Counter
+from ratel.util.counter import AverageCounter, Counter
 
 
 class TestCounter(TestCase):

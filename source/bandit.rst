@@ -1,10 +1,7 @@
-bandit package
+Bandits
 ==============
 
-Submodules
-----------
-
-bandit.bandit module
+Bandit
 --------------------
 
 .. automodule:: bandit.bandit
@@ -12,7 +9,7 @@ bandit.bandit module
    :undoc-members:
    :show-inheritance:
 
-bandit.binomial\_bandit module
+BinomialBandit
 ------------------------------
 
 .. automodule:: bandit.binomial_bandit
@@ -20,7 +17,7 @@ bandit.binomial\_bandit module
    :undoc-members:
    :show-inheritance:
 
-bandit.gaussian\_bandit module
+GaussianBandit
 ------------------------------
 
 .. automodule:: bandit.gaussian_bandit
@@ -28,7 +25,7 @@ bandit.gaussian\_bandit module
    :undoc-members:
    :show-inheritance:
 
-bandit.poisson\_bandit module
+PoissonBandit
 -----------------------------
 
 .. automodule:: bandit.poisson_bandit

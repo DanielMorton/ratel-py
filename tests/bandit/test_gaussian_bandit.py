@@ -2,7 +2,7 @@ from unittest import TestCase
 
 import numpy as np
 
-from src.bandit.gaussian_bandit import GaussianBandit
+from ratel.bandit.gaussian_bandit import GaussianBandit
 
 
 class TestGaussianBandit(TestCase):

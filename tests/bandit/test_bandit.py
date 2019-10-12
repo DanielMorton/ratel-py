@@ -2,7 +2,7 @@ from unittest import TestCase
 
 import numpy as np
 
-from src.bandit.bandit import Bandit
+from ratel.bandit.bandit import Bandit
 
 
 class TestBandit(TestCase):

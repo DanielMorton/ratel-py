@@ -1,6 +1,6 @@
 import numpy as np
 
-from src.util.stepper import ConstantStepper, HarmonicStepper, Stepper
+from ratel.util.stepper import ConstantStepper, HarmonicStepper, Stepper
 
 
 class TestStepper:

@@ -2,7 +2,7 @@ from unittest import TestCase
 
 import numpy as np
 
-from src.bandit.binomial_bandit import BinomialBandit, BernoulliBandit
+from ratel.bandit.binomial_bandit import BinomialBandit, BernoulliBandit
 
 
 class TestBinomialBanidt(TestCase):

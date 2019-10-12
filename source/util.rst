@@ -1,8 +1,5 @@
-util package
+Utilities
 ============
-
-Submodules
-----------
 
 util.counter module
 -------------------
