@@ -9,10 +9,18 @@ Counter
    :undoc-members:
    :show-inheritance:
 
-Counter
+AggregateCounter
 -------------------
 
-.. autoclass:: util.counter.Counter
+.. autoclass:: util.counter.AggregateCounter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+RecordCounter
+-------------------
+
+.. autoclass:: util.counter.RecordCounter
    :members:
    :undoc-members:
    :show-inheritance:
@@ -20,7 +28,23 @@ Counter
 Stepper
 -------------------
 
-.. automodule:: util.stepper
+.. autoclass:: util.stepper.Stepper
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ConstantStepper
+-------------------
+
+.. autoclass:: util.stepper.ConstantStepper
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+HarmonicStepper
+-------------------
+
+.. autoclass:: util.stepper.HarmonicStepper
    :members:
    :undoc-members:
    :show-inheritance:

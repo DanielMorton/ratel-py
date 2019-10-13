@@ -73,18 +73,34 @@ class AggregateCounter(Counter):
 
 
 class RecordCounter(Counter):
+    """Counter that keeps a list of all items ingested.
+
+    :param _record: List of all items ingested.
+    :type _record: List
+    """
 
     def __init__(self):
+        """Constructor method."""
         super().__init__()
         self._record = []
 
     def iterate(self, value):
+        """Adds new value to the list and increases the count by one.
+
+        :param value: A new value to add to the counter
+        """
         self._record.append(value)
         super().iterate()
 
     @property
     def record(self):
+        """Returns the current list of values ingested.
+
+        :return: The current list of values ingested.
+        :rtype: List
+        """
         return self._record
 
     def reset(self):
+        """Resets the Counter. List is returned to empty and counter is returned to zero."""
         self.__init__()
