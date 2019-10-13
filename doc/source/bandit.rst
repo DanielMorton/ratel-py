@@ -12,7 +12,15 @@ Bandit
 BinomialBandit
 ------------------------------
 
-.. automodule:: bandit.binomial_bandit
+.. autoclass:: bandit.binomial_bandit.BinomialBandit
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+BernoulliBandit
+------------------------------
+
+.. autoclass:: bandit.binomial_bandit.BernoulliBandit
    :members:
    :undoc-members:
    :show-inheritance:

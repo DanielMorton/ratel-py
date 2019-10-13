@@ -16,7 +16,7 @@ class GreedyAgent(Agent):
         super().__init__(stepper, q_inits)
 
     def action(self):
-        """Action of the agent. Chooses  the arm with the highest estimated value. Ties are broken randomly
+        """Action of the agent. Chooses the arm with the highest estimated value. Ties are broken randomly
 
         :return: The bandit arm that the agent has chosen to pull.
         :rtype: int

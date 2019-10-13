@@ -1,2 +1,2 @@
-from .counter import AverageCounter, Counter, RecordCounter
+from .counter import AggregateCounter, Counter, RecordCounter
 from .stepper import ConstantStepper, HarmonicStepper, Stepper

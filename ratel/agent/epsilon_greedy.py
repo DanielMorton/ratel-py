@@ -28,3 +28,12 @@ class EpsilonGreedyAgent(Agent):
         :rtype: int
         """
         return np.random.randint(self.arms) if np.random.random() < self._epsilon else self._argmax(self._q_star)
+
+    @property
+    def epsilon(self):
+        """Returns the probability of picking a random arm.
+
+        :returns: The probability of picking a random arm.
+        :rtype: float
+        """
+        return self._epsilon

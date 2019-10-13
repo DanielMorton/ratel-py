@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from ratel.util.counter import AverageCounter, Counter
+from ratel.util.counter import AggregateCounter, Counter
 
 
 class TestCounter(TestCase):
@@ -15,7 +15,7 @@ class TestCounter(TestCase):
         assert counter.counter == 0
 
     def test_average_counter(self):
-        avg_counter = AverageCounter()
+        avg_counter = AggregateCounter()
         nums = [9.15, 3.8, 9.79, 4.09, 7.36, 1.46, 9.52, 4.04, 5.36, 0.8]
         for n in nums:
             avg_counter.iterate(n)
@@ -25,4 +25,4 @@ class TestCounter(TestCase):
         avg_counter.reset()
         assert avg_counter.total == 0
         assert avg_counter.counter == 0
-        self.assertRaises(ZeroDivisionError, lambda: avg_counter.average)
+        assert avg_counter.average == 0

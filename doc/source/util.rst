@@ -1,15 +1,23 @@
 Utilities
 ============
 
-util.counter module
+Counter
 -------------------
 
-.. automodule:: util.counter
+.. autoclass:: util.counter.Counter
    :members:
    :undoc-members:
    :show-inheritance:
 
-util.stepper module
+Counter
+-------------------
+
+.. autoclass:: util.counter.Counter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Stepper
 -------------------
 
 .. automodule:: util.stepper
