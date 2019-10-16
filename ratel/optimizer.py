@@ -38,5 +38,3 @@ class Optimizer:
         for _ in range(steps):
             self.pull_arm()
         return self.output_df()
-
-

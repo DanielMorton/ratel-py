@@ -28,7 +28,7 @@ class OptimisticAgent(Agent):
         :rtype: int
         """
         upper_bounds = self._q_star + self._c * np.sqrt(np.log(self.counter) / (self._pick_count + 1))
-        am = self._argmax(upper_bounds)
+        am = np.argmax(upper_bounds)
         self._pick_count[am] += 1
         return am
 

@@ -1,6 +1,3 @@
-import numpy as np
-
-
 class Agent:
     """Generic agent for playing multi-arm bandit games.
 
@@ -16,24 +13,6 @@ class Agent:
         assert q_inits.shape[0] > 0
         self._stepper = stepper
         self._q_star = q_inits
-
-    @staticmethod
-    def _argmax(arr):
-        """Returns the argmax of a numpy array. Ties broken randomly.
-
-        :param arr (numpy array): Array of numbers.
-        :rtype: int
-        """
-        top = float("-inf")
-        ties = []
-
-        for idx, q in np.ndenumerate(arr):
-            if q > top:
-                top = q
-                ties = [idx[0]]
-            elif q == top:
-                ties.append(idx[0])
-        return np.random.choice(ties)
 
     def _step(self, arm):
         """Returns the current step size for the given arm.
@@ -83,7 +62,7 @@ class Agent:
         self._q_star = q_inits
 
     def step(self, current_action, reward):
-        """Updates q_start for the current action based on the most recent reward.
+        """Updates q_star for the current action based on the most recent reward.
 
         :param current_action: The bandit arm selected.
         :type current_action: int

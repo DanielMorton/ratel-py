@@ -1,3 +1,5 @@
+import numpy as np
+
 from .agent import Agent
 
 
@@ -21,4 +23,4 @@ class GreedyAgent(Agent):
         :return: The bandit arm that the agent has chosen to pull.
         :rtype: int
         """
-        return self._argmax(self._q_star)
+        return np.argmax(self._q_star)

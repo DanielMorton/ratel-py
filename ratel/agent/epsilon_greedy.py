@@ -27,7 +27,7 @@ class EpsilonGreedyAgent(Agent):
         :return: The bandit arm that the agent has chosen to pull.
         :rtype: int
         """
-        return np.random.randint(self.arms) if np.random.random() < self._epsilon else self._argmax(self._q_star)
+        return np.random.randint(self.arms) if np.random.random() < self._epsilon else np.argmax(self._q_star)
 
     @property
     def epsilon(self):
