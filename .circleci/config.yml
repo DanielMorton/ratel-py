@@ -6,6 +6,7 @@ jobs:
     steps:
       - checkout
       - run: sudo pip install pipenv
+      - run: sudo pip install pytest
       - run: pipenv lock
       - run: pipenv install --ignore-pipfile --dev
       - run: pipenv shell
