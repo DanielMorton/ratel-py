@@ -9,5 +9,4 @@ jobs:
       - run: sudo pip install pytest
       - run: pipenv lock
       - run: pipenv install --ignore-pipfile --dev
-      - run: pipenv shell
       - run: pytest
