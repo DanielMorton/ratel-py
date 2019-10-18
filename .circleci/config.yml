@@ -52,10 +52,18 @@ jobs:
       - run: pipenv run pytest
 workflows:
   version: 2
-  python3:
+  python38:
     jobs:
       - build38
+  python37:
+    jobs:
       - build37
+  python36:
+    jobs:
       - build36
+  python35:
+    jobs:
       - build35
+  python34:
+    jobs:
       - build34
