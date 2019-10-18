@@ -9,8 +9,11 @@ python:
   - "3.8-dev"
   - "nightly"
 
+before_install:
+  - python -m pip install --upgrade pip
+
 install:
-  - pip install pipenv pip
+  - pip install pipenv
   - pipenv lock
   - pipenv install --ignore-pipfile --dev
 
