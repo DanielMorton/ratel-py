@@ -13,7 +13,8 @@ install:
   - pip install pipenv
   - pipenv lock
   - pipenv install --ignore-pipfile --dev
-  - pytest
+
+script: pytest
 
 notifications:
   email:
