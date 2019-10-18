@@ -1,6 +1,16 @@
 version: 2
 jobs:
-  build:
+  build38:
+    docker:
+      - image: circleci/python:3.8.0b4-buster
+    steps:
+      - checkout
+      - run: sudo pip install pipenv
+      - run: sudo pip install pytest
+      - run: pipenv lock
+      - run: pipenv install --ignore-pipfile --dev
+      - run: pipenv run pytest
+  build37:
     docker:
       - image: circleci/python:3.7.4-stretch
     steps:
@@ -10,3 +20,13 @@ jobs:
       - run: pipenv lock
       - run: pipenv install --ignore-pipfile --dev
       - run: pipenv run pytest
+    build36:
+      docker:
+        - image: circleci/python:3.6.9-stretch
+      steps:
+        - checkout
+        - run: sudo pip install pipenv
+        - run: sudo pip install pytest
+        - run: pipenv lock
+        - run: pipenv install --ignore-pipfile --dev
+        - run: pipenv run pytest
