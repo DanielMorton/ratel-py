@@ -20,16 +20,26 @@ jobs:
       - run: pipenv lock
       - run: pipenv install --ignore-pipfile --dev
       - run: pipenv run pytest
-    build36:
-      docker:
-        - image: circleci/python:3.6.9-stretch
-      steps:
-        - checkout
-        - run: sudo pip install pipenv
-        - run: sudo pip install pytest
-        - run: pipenv lock
-        - run: pipenv install --ignore-pipfile --dev
-        - run: pipenv run pytest
+  build36:
+    docker:
+      - image: circleci/python:3.6.9-stretch
+    steps:
+      - checkout
+      - run: sudo pip install pipenv
+      - run: sudo pip install pytest
+      - run: pipenv lock
+      - run: pipenv install --ignore-pipfile --dev
+      - run: pipenv run pytest
+  build35:
+    docker:
+      - image: circleci/python:3.5.7-stretch
+    steps:
+      - checkout
+      - run: sudo pip install pipenv
+      - run: sudo pip install pytest
+      - run: pipenv lock
+      - run: pipenv install --ignore-pipfile --dev
+      - run: pipenv run pytest
 workflows:
   version: 2
   python3:
@@ -37,3 +47,5 @@ workflows:
       - build38
       - build37
       - build36
+      - build35
+      - build34
