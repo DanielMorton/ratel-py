@@ -52,7 +52,7 @@ jobs:
       - run: pipenv run pytest
 workflows:
   version: 2
-  rust:
+  python3:
     jobs:
       - build38
       - build37
