@@ -40,6 +40,16 @@ jobs:
       - run: pipenv lock
       - run: pipenv install --ignore-pipfile --dev
       - run: pipenv run pytest
+  build34:
+    docker:
+      - image: circleci/python:3.4.9-stretch
+    steps:
+      - checkout
+      - run: sudo pip install pipenv
+      - run: sudo pip install pytest
+      - run: pipenv lock
+      - run: pipenv install --ignore-pipfile --dev
+      - run: pipenv run pytest
 workflows:
   version: 2
   python3:
@@ -48,3 +58,4 @@ workflows:
       - build37
       - build36
       - build35
+      - build34
