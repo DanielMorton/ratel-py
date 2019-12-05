@@ -19,7 +19,8 @@ class OptimisticAgent(Agent):
         """Constructor method."""
         super().__init__(stepper, q_inits)
         self._c = c_bound
-        self._pick_count = np.zeros(self.arms())
+        self._counter = 0
+        self._pick_count = np.zeros(self.arms)
 
     def action(self):
         """Action of the agent. Chooses the arm with the highest upper confidence bound. Ties are broken randomly
@@ -30,6 +31,7 @@ class OptimisticAgent(Agent):
         upper_bounds = self._q_star + self._c * np.sqrt(np.log(self.counter) / (self._pick_count + 1))
         am = np.argmax(upper_bounds)
         self._pick_count[am] += 1
+        self._counter += 1
         return am
 
     @property
@@ -40,3 +42,7 @@ class OptimisticAgent(Agent):
         :rtype: float
         """
         return self._c
+
+    @property
+    def counter(self):
+        return self._counter
