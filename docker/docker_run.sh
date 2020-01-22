@@ -16,7 +16,7 @@ do
             shift
             ;;
         -e|--epsilon)
-            TYPE="-e"
+            TYPE="-e $2"
             shift
             ;;
         -g|--greedy)
