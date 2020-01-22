@@ -1,3 +1,8 @@
-FROM tiangolo/python-machine-learning:python3.7
+FROM python:3.7-slim
 
-COPY ./main.py /app/main.py
+COPY . ../ratel
+
+RUN pip install numpy pandas
+RUN cd ./ratel
+
+ENTRYPOINT ["./bernoulli_bandit.py"]
