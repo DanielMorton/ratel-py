@@ -28,7 +28,7 @@ class Counter:
 
 
 class AggregateCounter(Counter):
-    """Counter that keeps the sum off all inputs as well as a count of all inputs. Can be used to compute an average
+    """Counter that keeps the sum of all inputs as well as a count of all inputs. Can be used to compute an average
     of all items ingested.
 
     :param _total: Sum of all inputs ingested.

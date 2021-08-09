@@ -29,4 +29,4 @@ do
     shift
 done
 
-docker run ${DOCKER_IMAGE_NAME} -l $LENGTH -r $RUNS $TYPE
+docker run ${DOCKER_IMAGE_NAME} --entrypoint -l $LENGTH -r $RUNS $TYPE
