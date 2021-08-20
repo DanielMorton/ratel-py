@@ -61,9 +61,3 @@ workflows:
   python36:
     jobs:
       - build36
-  python35:
-    jobs:
-      - build35
-  python34:
-    jobs:
-      - build34
